@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-8">
+      <div class="page-header">
+        <h1>CovidProjects</h1>
+        <h2>Add project</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-8">
+      <%= form_for(@project) do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :short_description %>
+          <p class="info-text">Max 140 chars</p>
+          <%= f.text_field :short_description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :url %>
+          <%= f.text_field :url, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.fields_for :tag, @tags do |t| %>
+            <%= t.label :name, 'Tags' %>
+            <p class="info-text">Comma separated please</p>
+            <%= t.text_area :name, class: "form-control" %>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <p class="info-text">This will not be displayed, but if you don’t enter one you will not be able to edit your project</p>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit :save, class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

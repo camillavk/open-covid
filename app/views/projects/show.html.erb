@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-8">
+      <div class="page-header">
+        <h1>CovidProjects</h1>
+        <h2><%= @project.title %></h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-8">   
+      <p><%= @project.short_description %></p>
+      <% @project.tags.each do |tag| %>  
+        <span class="project--tags"><%= tag.name %>, </span>
+      <% end %>
+      <p><%= @project.url %></p>
+      <p><%= @project.description %></p>
+    </div>
+  </div>
+</div>
