@@ -1,3 +1,25 @@
 .project--tags {
   @extend .info-text;
 }
+
+.project-listing {
+  padding: 20px 0;
+}
+
+.title-link {
+  @extend h2;
+  color: $greyish-brown;
+
+  &:hover {
+    color: $greyish-brown;
+  }
+}
+
+.flexdatalist-multiple li.value {
+  background: $light-teal;
+  color: $greyish-brown;
+}
+
+.flexdatalist-multiple li.input-container, .flexdatalist-multiple li.input-container input {
+  width: 90%;
+}

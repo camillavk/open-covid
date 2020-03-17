@@ -1,1 +1,49 @@
-Nothing to see here yet.
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6">
+      <div class="page-header">
+        <h1>CovidProjects</h1>
+      </div>
+    </div>
+    <div class="col-sm-2 align-self-end">
+      <%= button_to "Add project", new_project_path, method: :get, class: "button--primary" %>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6">
+      <p>We wanted to build a quick app to help people find and list their Covid-19 projects to find help and get whaterver they need. Projects should be open source and non-commercial.</p>
+    </div>
+    <div class="col-sm-2 align-self-center">
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6">
+      <h2>List of projects</h2>
+      <form>
+        <div class="form-group">
+        <input type='text'
+          placeholder='Start typing to filter by tags...'
+          class='flexdatalist project-filter'
+          data-min-length='0'
+          multiple='multiple'
+          list='available_tags'
+          name='tags'
+          value="<%= @filters %>">
+        </div>
+      </form>
+      <datalist id="available_tags">
+        <% @available_tags.each do |tag| %>
+          <option value="<%= tag.name %>"><%= tag.name %></option>
+        <% end %>
+      </datalist>
+    </div>
+    <div class="col-sm-2 align-self-center">
+    </div>
+  </div>
+
+  <div id="projects-list">
+    <%= render 'projects', object: @projects %>
+  </div>
+</div>

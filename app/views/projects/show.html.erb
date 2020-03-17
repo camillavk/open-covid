@@ -1,20 +1,31 @@
 <div class="container">
   <div class="row justify-content-md-center">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       <div class="page-header">
         <h1>CovidProjects</h1>
-        <h2><%= @project.title %></h2>
+        <%= link_to '< Back to project list', projects_path, class: "info-text" %>
       </div>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col-sm-6">
+      <h2><%= @project.title %></h2>
+      <p><%= @project.short_description %></p>
+      <% @project.tags.each do |tag| %>  
+        <span class="project--tags"><%= tag.name %>, </span>
+      <% end %>
+      <p class="info-text"><%= @project.url %></p>
+    </div>
+    <div class="col-sm-2 align-self-center">
+      <%= button_to "Edit project", edit_project_path(@project), method: :get, class: "button--primary" %>
     </div>
   </div>
 
   <div class="row justify-content-md-center">
     <div class="col-sm-8">   
-      <p><%= @project.short_description %></p>
-      <% @project.tags.each do |tag| %>  
-        <span class="project--tags"><%= tag.name %>, </span>
-      <% end %>
-      <p><%= @project.url %></p>
       <p><%= @project.description %></p>
     </div>
   </div>

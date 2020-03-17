@@ -3,6 +3,36 @@ body {
   color: $greyish-brown;
 }
 
+.row {
+  padding: 10px 0;
+}
+
 .page-header {
-  margin-top: 50px;
+  padding-top: 50px;
+}
+
+button {
+  width: 108px;
+  height: 41px;
+  border-radius: 8px;
+  background-color: $tealish;
+}
+
+.button--primary {
+  width: 108px;
+  height: 41px;
+  border-radius: 8px;
+  background-color: $tealish;
+  @extend p;
+  color: white;
+  border: none;
+}
+
+input {
+  border-radius: 8px;
+  border: solid 1px $brown-grey;
+}
+
+label {
+  margin-bottom: 0;
 }

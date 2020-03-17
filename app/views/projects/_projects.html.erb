@@ -1,0 +1,13 @@
+<% @projects.each do |project| %>
+  <div class="row justify-content-md-center project-listing">
+    <div class="col-sm-6">
+      <%= link_to project.title, project_path(project), class: "title-link" %>
+      <p><%= project.short_description %></p>
+      <% project.tags.each do |tag| %>  
+        <span class="project--tags"><%= tag.name %>, </span>
+      <% end %>
+    </div>
+    <div class="col-sm-2 align-self-center">
+    </div>
+  </div>
+<% end %>
