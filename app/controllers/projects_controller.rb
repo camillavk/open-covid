@@ -6,8 +6,8 @@ class ProjectsController < ApplicationController
   before_action :verify_email, only: :update
 
   def index
-    @filters = filter_params[:filters]
-    @projects = !@filters.blank? ? filter_projects(@filters) : Project.all
+    @filters = filter_params[:tag_filters]
+    @projects = !@filters.blank? ? filter_projects(@filters) : Project.all.sort_by(&:updated_at).reverse
     respond_to do |format|
       format.html
       format.js {render layout: false}
@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
   end
 
   def filter_params
-    params.permit(:filters)
+    params.permit(:tag_filters)
   end
 
   def add_tags_to_project
@@ -98,6 +98,6 @@ class ProjectsController < ApplicationController
       projects << Project.joins(:tags).where(tags: { name: "#{tag}" })
     end
 
-    projects.flatten
+    projects.flatten.sort_by(&:updated_at).reverse
   end
 end
