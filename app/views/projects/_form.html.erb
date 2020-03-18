@@ -9,6 +9,7 @@
     <div class="form-group">
       <%= f.label :short_description %>
       <p class="info-text">Max 140 chars</p>
+      <p class="info-text form-error-info hide">Description is too long</p>
       <%= f.text_field :short_description, class: "form-control" %>
     </div>
 
@@ -52,7 +53,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.submit :Save, class: "form-control button--primary" %>
+      <%= f.submit :Save, class: "form-control button--primary", id: "project-form-submit" %>
     </div>
   <% end %>
   </div>

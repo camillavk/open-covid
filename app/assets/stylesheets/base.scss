@@ -33,6 +33,18 @@ input {
   border: solid 1px $brown-grey;
 }
 
+.input-error {
+  border: solid 2px $burnt-orange;
+}
+
 label {
   margin-bottom: 0;
+}
+
+.hide {
+  display: none;
+}
+
+.form-error-info {
+  color: $burnt-orange;
 }

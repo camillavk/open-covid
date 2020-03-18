@@ -18,7 +18,24 @@ function filterProjects () {
   });
 }
 
+function disableShortDescription () {
+  $('#project_short_description').keyup(function() {
+    let inputLength = $(this).val().length
+
+    if (inputLength > 140) {
+      $("#project-form-submit").attr("disabled", true)
+      $(".form-error-info").removeClass("hide")
+      $(this).addClass("input-error")
+    } else {
+      $("#project-form-submit").attr("disabled", false)
+      $(".form-error-info").addClass("hide")
+      $(this).removeClass("input-error")
+    }
+  })
+}
+
 document.addEventListener("turbolinks:load", function() {
   initializeDataList();
   filterProjects();
+  disableShortDescription();
 })
